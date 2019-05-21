@@ -1,0 +1,14 @@
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\bin\Debug\netcoreapp2.1\Pikadit.deps.json
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\bin\Debug\netcoreapp2.1\Pikadit.runtimeconfig.json
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\bin\Debug\netcoreapp2.1\Pikadit.runtimeconfig.dev.json
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\bin\Debug\netcoreapp2.1\Pikadit.dll
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\bin\Debug\netcoreapp2.1\Pikadit.pdb
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\obj\Debug\netcoreapp2.1\Pikadit.csproj.CoreCompileInputs.cache
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\obj\Debug\netcoreapp2.1\Pikadit.RazorAssemblyInfo.cache
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\obj\Debug\netcoreapp2.1\Pikadit.RazorAssemblyInfo.cs
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\obj\Debug\netcoreapp2.1\Pikadit.AssemblyInfoInputs.cache
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\obj\Debug\netcoreapp2.1\Pikadit.AssemblyInfo.cs
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\obj\Debug\netcoreapp2.1\Pikadit.RazorTargetAssemblyInfo.cache
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\obj\Debug\netcoreapp2.1\Pikadit.dll
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\obj\Debug\netcoreapp2.1\Pikadit.pdb
+C:\Users\nbarm\source\repos\Pikadit\Pikadit\obj\Debug\netcoreapp2.1\Pikadit.csprojAssemblyReference.cache

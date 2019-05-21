@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Pikadit</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="js/jquery-3.3.1.js"></script>
+</head>
+<body style="background-color:lightblue;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand" href="#">Pikadit</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <button id="newPost" class="btn btn-outline-warning" style="margin:5px;" data-toggle="modal" data-target="#newPostModal" type="button">Add post</button>
+            <div id="Karma"></div>
+            <!--<button class="btn btn-warning" data-toggle="modal" style="margin:5px;" data-target="#RegisterForm" type="button">Register</button>
+            <button class="btn btn-warning" data-toggle="modal" style="margin:5px;" data-target="#LoginForm" type="button">Login</button>
+            <button class="btn btn-warning" id="Logoffbtn" style="margin:5px;" type="button">Sign out</button>-->
+        </div>
+    </nav>
+
+    <div class="modal fade" id="newPostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Headline:</label>
+                            <input type="text" class="form-control" id="PostHeadline">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Textbody:</label>
+                            <textarea class="form-control" style="height:200px" id="PostTextbody"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Author:</label>
+                            <input type="text" class="form-control" id="PostAuthor" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="addPostBut" type="button" class="btn btn-primary">Publish</button>
+                    <button id="editPostBut" type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="CommentsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="false">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Comments</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="commentsOnPost" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="newCommentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Comment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Text:</label>
+                            <textarea class="form-control" style="height:200px" id="CommentTextbody"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="newCommentBut" type="button" class="btn btn-primary">Publish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight" style="width:20%;">
+            <div id="Notations"></div>
+        </div>
+        <div class="p-2 bd-highlight" style="width:50%;">
+            <div id="PostsList"></div>
+        </div>
+        <div class="p-2 bd-highlight" style="width:30%;">
+            <div id="Account" style="margin:5px;">
+                <div class="card mx-auto" style="width:80%;">
+                    <div class="card-body">
+                        <nav class="navbar-light" style="width:80%;">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Регистрация</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Вход</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="msg-error">
+                                    <div id="msg"></div>
+                                    <ul id="formError"></ul>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Username</label>
+                                    <input type="text" class="form-control" id="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Email</label>
+                                    <input type="text" class="form-control" id="email" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Password</label>
+                                    <input type="text" class="form-control" id="password" />
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button id="Registerbtn" type="button" style="margin:5px;" class="btn btn-primary">Confirm</button>
+                                    <button class="btn btn-warning" id="Logoffbtn" style="margin:5px;" type="button">Sign out</button>
+                                </div>                                
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="msg-error">
+                                    <div id="msg"></div>
+                                    <ul id="formError"></ul>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Email</label>
+                                    <input type="text" class="form-control" id="loginemail" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Password</label>
+                                    <input type="text" class="form-control" id="loginpassword" />
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button id="Loginbtn" type="button" style="margin:5px;" class="btn btn-primary">Sign in</button>
+                                    <button class="btn btn-warning" id="Logoffbtn" style="margin:5px;" type="button">Sign out</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/scripts.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
+    <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
